@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 public class User {
     private String username, password, email;
-    private java.math.BigDecimal balance;  
+    private BigDecimal balance;
 
     public User(String username, String password, String email, BigDecimal balance) {
         this.username = username;
