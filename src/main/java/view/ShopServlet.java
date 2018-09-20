@@ -5,7 +5,6 @@
  */
 package view;
 
-import controller.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
@@ -14,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.User;
 
 /**
  *
  * @author leage
  */
-@WebServlet(name = "UserServlet", urlPatterns = {"/UserServlet"})
-public class UserServlet extends HttpServlet {
+@WebServlet(name = "shopServlet", urlPatterns = {"/shopServlet"})
+public class ShopServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,29 +34,20 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        //Faste variabler
-        String username = "Lea";
-        String password = "luca";
-        String email = "luca@rabbitmail.dk";
-        BigDecimal balance = new BigDecimal("100.00");
-        
-        Controller ctrl = new Controller();
-        
-        ctrl.addUser(username, password, email, balance);
-        
-        
+             
+        String username = (String)request.getSession().getAttribute("username"); 
+        String balance = "" + (BigDecimal )request.getSession().getAttribute("balance");
        
         
-    
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserServlet</title>");            
+            out.println("<title>Servlet shopServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UserServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Username: " + username + "Balance: " + balance + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

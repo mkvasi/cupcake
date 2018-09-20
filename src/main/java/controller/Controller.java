@@ -15,6 +15,8 @@ import model.User;
  */
 public class Controller {
 
+    DataMapper dataMapper = new DataMapper();
+
     public boolean checkUser(String username, String password, String email, BigDecimal balance) {
 
         if ((username == null) || (username.isEmpty())) {
@@ -36,8 +38,15 @@ public class Controller {
 
     public void addUser(String username, String password, String email, BigDecimal balance) {
         if (checkUser(username, password, email, balance)) {
-            DataMapper dataMapper = new DataMapper(); 
+            DataMapper dataMapper = new DataMapper();
             dataMapper.addUser(new User(username, password, email, balance));
         }
+
     }
+
+    public boolean checkPassword(String username, String password) {
+        User user = dataMapper.getUserInformation(username);
+        return password.equals(user.getPassword());
+    }
+
 }
