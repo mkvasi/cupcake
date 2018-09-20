@@ -44,7 +44,7 @@ public class FrontController extends HttpServlet {
                 System.out.println("TEST");
                 //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cupcake/UserServlet");
                 //dispatcher.forward(request, response);
-                //response.sendRedirect("/cupcake/UserServlet");
+                response.sendRedirect("/cupcake/UserServlet");
                 
                 break;
             case "login":

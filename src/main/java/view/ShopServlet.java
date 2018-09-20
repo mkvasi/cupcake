@@ -36,7 +36,7 @@ public class ShopServlet extends HttpServlet {
         
              
         String username = (String)request.getSession().getAttribute("username"); 
-        String balance = "" + (BigDecimal )request.getSession().getAttribute("balance");
+        String balance = "" + (BigDecimal)request.getSession().getAttribute("balance");
        
         
         try (PrintWriter out = response.getWriter()) {
