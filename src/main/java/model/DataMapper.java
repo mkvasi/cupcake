@@ -5,12 +5,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DataMapper {
-
-    
 
     public User getUserInformation(String username) {
         User user = null;
@@ -30,11 +29,11 @@ public class DataMapper {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } 
+        }
 
         return user;
     }
-    
+
     public void addUser(User user) {
         try {
             Connection conn = new DBConnector().getConnection();
@@ -46,13 +45,13 @@ public class DataMapper {
             pstmt.setString(3, user.getEmail());
             pstmt.setBigDecimal(4, user.getBalance());
             pstmt.executeUpdate(sql);
-           
+
         } catch (SQLException ex) {
             Logger.getLogger(DataMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-        public Cupcake getCupcakeInformation(int id) {
+
+    public Cupcake getCupcakeInformation(int id) {
         Cupcake cupcake = null;
         try {
             Connection conn = new DBConnector().getConnection();
@@ -71,9 +70,50 @@ public class DataMapper {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } 
+        }
 
         return cupcake;
     }
-    
+
+    public List<Bottom> getBottoms() {
+        List<Bottom> getAllBottoms = null;
+        Bottom bottom = null;
+        try {
+            Connection conn = new DBConnector().getConnection();
+            String sql = "SELECT * FROM `bottom`";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                String b_name = rs.getString("name");
+                BigDecimal b_price = rs.getBigDecimal("price");
+                bottom = new Bottom(b_name, b_price);
+                getAllBottoms.add(bottom);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return getAllBottoms;
+    }
+
+    public List<Topping> getToppings() {
+        List<Topping> getAllToppings = null;
+        Topping topping = null;
+        try {
+            Connection conn = new DBConnector().getConnection();
+            String sql = "SELECT * FROM `topping`";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                String t_name = rs.getString("name");
+                BigDecimal t_price = rs.getBigDecimal("price");
+                topping = new Topping(t_name, t_price);
+                getAllToppings.add(topping);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return getAllToppings;
+    }
 }
