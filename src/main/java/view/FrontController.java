@@ -36,6 +36,9 @@ public class FrontController extends HttpServlet {
 
         String path = request.getPathInfo();
         switch (path.substring(1)) {
+            case "*":
+                response.sendRedirect("/cupcake/Index");
+                break; 
             case "shop":
             //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cupcake/ShopServlet");
             //dispatcher.forward(request, response);

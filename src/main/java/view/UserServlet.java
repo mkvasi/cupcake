@@ -44,9 +44,10 @@ public class UserServlet extends HttpServlet {
         
         Controller ctrl = new Controller();
         
+        
         //ctrl.addUser(username, password, email, balance);
         
-        
+       // ctrl.checkPassword(username, password); 
        
         
     
