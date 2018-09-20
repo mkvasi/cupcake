@@ -77,7 +77,6 @@ public class DataMapper {
 
     public List<Bottom> getBottoms() {
         List<Bottom> getAllBottoms = null;
-        Bottom bottom = null;
         try {
             Connection conn = new DBConnector().getConnection();
             String sql = "SELECT * FROM `bottom`";
@@ -86,8 +85,7 @@ public class DataMapper {
             while (rs.next()) {
                 String b_name = rs.getString("name");
                 BigDecimal b_price = rs.getBigDecimal("price");
-                bottom = new Bottom(b_name, b_price);
-                getAllBottoms.add(bottom);
+                getAllBottoms.add(new Bottom(b_name, b_price));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -98,7 +96,6 @@ public class DataMapper {
 
     public List<Topping> getToppings() {
         List<Topping> getAllToppings = null;
-        Topping topping = null;
         try {
             Connection conn = new DBConnector().getConnection();
             String sql = "SELECT * FROM `topping`";
@@ -107,8 +104,7 @@ public class DataMapper {
             while (rs.next()) {
                 String t_name = rs.getString("name");
                 BigDecimal t_price = rs.getBigDecimal("price");
-                topping = new Topping(t_name, t_price);
-                getAllToppings.add(topping);
+                getAllToppings.add(new Topping(t_name, t_price));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
