@@ -41,7 +41,7 @@ public class FrontController extends HttpServlet {
             
            // RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/LoginServlet"); 
             // dispatcher.forward(request, response);
-            request.getSession().setAttribute("username", "Rabbit Lea");
+            request.getSession().setAttribute("username", "RabbitLea");
             request.getSession().setAttribute("password", 1234);
             response.sendRedirect("/test/LoginServlet");
         }
