@@ -5,23 +5,20 @@
  */
 package view;
 
-import controller.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.User;
 
 /**
  *
- * @author leage
+ * @author morte
  */
-@WebServlet(name = "UserServlet", urlPatterns = {"/UserServlet"})
-public class UserServlet extends HttpServlet {
+@WebServlet(name = "Index", urlPatterns = {"/Index"})
+public class Index extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,30 +32,18 @@ public class UserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        //Faste variabler
-        String username = "Lea";
-        String password = "luca";
-        String email = "luca@rabbitmail.dk";
-        BigDecimal balance = new BigDecimal("100.00");
-        
-        Controller ctrl = new Controller();
-        
-        //ctrl.addUser(username, password, email, balance);
-        
-        
-       
-        
-    
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserServlet</title>");            
+            out.println("<title>Servlet Index</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>" + username + " " + password + " " + email + " " + balance + "</h1>");
+            out.println("<h1>Index</h1>");
+            out.println("<a href=\"" + request.getContextPath() + "/login\">Login</a>");
+            out.println("<a href=\"" + request.getContextPath() + "/createUser\">AddUser</a>");
+            out.println("<a href=\"" + request.getContextPath() + "/shop\">ShopServlet</a>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -33,19 +33,28 @@ public class FrontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String path = request.getPathInfo();
-        switch(path.substring(1)){
-            case "":
+        switch (path.substring(1)) {
+            case "shop":
+                //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cupcake/ShopServlet");
+                //dispatcher.forward(request, response);
+                //response.sendRedirect("/cupcake/ShopServlet");
+            case "createUser":
+                System.out.println("TEST");
+                //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cupcake/UserServlet");
+                //dispatcher.forward(request, response);
+                //response.sendRedirect("/cupcake/UserServlet");
+                
+                break;
             case "login":
-            
-           // RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/LoginServlet"); 
-            // dispatcher.forward(request, response);
-            request.getSession().setAttribute("username", "RabbitLea");
-            request.getSession().setAttribute("password", 1234);
-            response.sendRedirect("/test/LoginServlet");
+                // RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/LoginServlet"); 
+                // dispatcher.forward(request, response);
+                //request.getSession().setAttribute("username", "RabbitLea");
+                //request.getSession().setAttribute("password", 1234);
+                response.sendRedirect("/cupcake/LoginServlet");
         }
-         
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

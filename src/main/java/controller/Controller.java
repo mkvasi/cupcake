@@ -38,7 +38,6 @@ public class Controller {
 
     public void addUser(String username, String password, String email, BigDecimal balance) {
         if (checkUser(username, password, email, balance)) {
-            DataMapper dataMapper = new DataMapper();
             dataMapper.addUser(new User(username, password, email, balance));
         }
 
