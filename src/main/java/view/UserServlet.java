@@ -7,6 +7,7 @@ package view;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,11 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        
+        //Faste variabler
+        String username;
+        String password;
+        String email;
+        BigDecimal balance;
         
     
         try (PrintWriter out = response.getWriter()) {
