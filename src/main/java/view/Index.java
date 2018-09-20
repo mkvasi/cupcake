@@ -42,7 +42,7 @@ public class Index extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Index</h1>");
             out.println("<a href=\"" + request.getContextPath() + "/login\">Login</a>");
-            out.println("<a href=\"" + request.getContextPath() + "/createUser\">AddUser</a>");
+            out.println("<a href=\"" + request.getContextPath() + "/createUser?test=123\">AddUser</a>");
             out.println("<a href=\"" + request.getContextPath() + "/shop\">ShopServlet</a>");
             out.println("</body>");
             out.println("</html>");

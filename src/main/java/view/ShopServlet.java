@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author leage
  */
-@WebServlet(name = "shopServlet", urlPatterns = {"/shopServlet"})
+@WebServlet(name = "ShopServlet", urlPatterns = {"/ShopServlet"})
 public class ShopServlet extends HttpServlet {
 
     /**
@@ -36,7 +36,7 @@ public class ShopServlet extends HttpServlet {
         
              
         String username = (String)request.getSession().getAttribute("username"); 
-        String balance = "" + (BigDecimal)request.getSession().getAttribute("balance");
+        BigDecimal balance = (BigDecimal)request.getSession().getAttribute("balance");
        
         
         try (PrintWriter out = response.getWriter()) {
@@ -47,7 +47,7 @@ public class ShopServlet extends HttpServlet {
             out.println("<title>Servlet shopServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Username: " + username + "Balance: " + balance + "</h1>");
+            out.println("<h1>Username: " + username + "Balance: " + balance.toString() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
