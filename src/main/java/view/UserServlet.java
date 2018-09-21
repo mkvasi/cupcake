@@ -49,8 +49,8 @@ public class UserServlet extends HttpServlet {
         switch (action) {
             case "login":
                 if (ctrl.checkPassword(username, password)) {
-                    request.getSession().setAttribute("username", "morten");
-                    request.getSession().setAttribute("balance", 100.00);
+                    request.getSession().setAttribute("username", username);
+                    request.getSession().setAttribute("balance", balance);
                     response.sendRedirect("/cupcake/ShopServlet");
                 }
                 break;

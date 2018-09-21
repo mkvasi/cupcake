@@ -37,7 +37,6 @@ public class ShopServlet extends HttpServlet {
              
         String username = (String)request.getSession().getAttribute("username"); 
         String balance = "" +(double)request.getSession().getAttribute("balance");
-       
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -47,7 +46,9 @@ public class ShopServlet extends HttpServlet {
             out.println("<title>Servlet shopServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Username: " + username + "Balance: " + balance + "</h1>");
+            out.println("<h1>Username: " + username + "</h1>");
+            out.println("<br>");
+            out.println("<h1>Balance: " + balance + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

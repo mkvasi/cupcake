@@ -44,8 +44,22 @@ public class LoginServlet extends HttpServlet {
             out.println("<title>Servlet LoginServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<a href=\"" + request.getContextPath() + "/loginUser\">Login User</a>");
-            out.println("<a href=\"" + request.getContextPath() + "/createUser\">Add User</a>");
+            out.println("<h1>Username: " + username + "</h1>");
+            out.println("<h1>Password: " + password + "</h1>");
+            
+            out.println("<form>");
+            out.println("<input type=\"button\" value=\"Login User\" onclick=\"window.location.href='" + request.getContextPath() + "/loginUser'\" />");
+            out.println("</form>");
+            
+//            out.println("<a href=\"" + request.getContextPath() + "/loginUser\">Login User</a>");
+//            out.println("<br><br>");
+//            out.println("<a href=\"" + request.getContextPath() + "/createUser\">Add User</a>");
+
+            out.println("<br>");
+            out.println("<form>");
+            out.println("<input type=\"button\" value=\"Create User\" onclick=\"window.location.href='" + request.getContextPath() + "/createUser'\" />");
+            out.println("</form>");
+            
             out.println("</body>");
             out.println("</html>");
         }
