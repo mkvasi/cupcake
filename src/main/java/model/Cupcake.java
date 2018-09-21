@@ -1,23 +1,18 @@
 package model;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 public class Cupcake {
 
-private String name, top, bottom;
+private String top, bottom;
 private int id;
 private double totalPrice;
 
-    public Cupcake(int id, String name, String top, String bottom, double totalPrice) {
+    public Cupcake(int id, String top, String bottom, double totalPrice) {
         this.id = id;
-        this.name = name;
         this.top = top;
         this.bottom = bottom;
         this.totalPrice = totalPrice;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getId() {
@@ -26,10 +21,6 @@ private double totalPrice;
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getTop() {

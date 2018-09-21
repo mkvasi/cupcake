@@ -60,11 +60,10 @@ public class DataMapper {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 int c_id = rs.getInt("id");
-                String c_name = rs.getString("name");
                 String c_top = rs.getString("t_topname");
                 String c_bottom = rs.getString("b_bottomname");
                 double c_totalPrice = rs.getDouble("totalprice");
-                cupcake = new Cupcake(c_id, c_name, c_top, c_bottom, c_totalPrice);
+                cupcake = new Cupcake(c_id, c_top, c_bottom, c_totalPrice);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
