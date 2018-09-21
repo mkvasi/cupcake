@@ -39,10 +39,10 @@ public class ShopServlet extends HttpServlet {
         Controller ctrl = new Controller();
         DataMapper dataMapper = new DataMapper();
              
-        String username = (String)request.getSession().getAttribute("username"); 
-        String balance = "" +(double)request.getSession().getAttribute("balance");
         
         try (PrintWriter out = response.getWriter()) {
+            String username = (String)request.getSession().getAttribute("username"); 
+            String balance = "" +(double)request.getSession().getAttribute("balance");
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");

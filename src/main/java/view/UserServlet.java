@@ -9,6 +9,7 @@ import controller.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +52,9 @@ public class UserServlet extends HttpServlet {
                 if (ctrl.checkPassword(username, password)) {
                     request.getSession().setAttribute("username", username);
                     request.getSession().setAttribute("balance", balance);
-                    response.sendRedirect("/cupcake/ShopServlet");
+//                    response.sendRedirect("/cupcake/ShopServlet");
+                        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/ShopServlet"); 
+                        dispatcher.forward(request, response);
                 }
                 break;
             case "create":

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DataMapper {
@@ -36,13 +37,14 @@ public class DataMapper {
         try {
             Connection conn = new DBConnector().getConnection();
             String sql = "INSERT INTO `user` (username, password, email, balance)"
-                    + "VALUES(?,?,?,?)";
+                    + "VALUES (?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, user.getUsername());
             pstmt.setString(2, user.getPassword());
             pstmt.setString(3, user.getEmail());
             pstmt.setDouble(4, user.getBalance());
-            pstmt.executeUpdate(sql);
+            pstmt.executeUpdate();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -109,4 +111,9 @@ public class DataMapper {
 
         return getAllToppings;
     }
+//    public static void main(String[] args) {
+//        DataMapper dataMapper = new DataMapper(); 
+//        
+//        dataMapper.addUser(new User("lort", "123", "123", 100.0));
+//    }
 }

@@ -46,9 +46,10 @@ public class Controller {
     }
 
     public boolean checkPassword(String username, String password) {
-        //User user = dataMapper.getUserInformation(username);
-        //return password.equals(user.getPassword());
-        return true; //TEST
+//        User user = dataMapper.getUserInformation(username);
+//        return password.equals(user.getPassword());
+        return true; 
+       
     }
 
     public String showAllBottoms(ArrayList<Bottom> allBottoms) {
