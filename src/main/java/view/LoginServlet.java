@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author morte
  */
-@WebServlet(name = "Index", urlPatterns = {"/Index"})
-public class Index extends HttpServlet {
+@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,18 +32,20 @@ public class Index extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        String username = "morten";
+        String password = "morten";
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Index</title>");            
+            out.println("<title>Servlet LoginServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Index</h1>");
-            out.println("<a href=\"" + request.getContextPath() + "/login\">Login</a>");
-            out.println("<a href=\"" + request.getContextPath() + "/createUser\">AddUser</a>");
-            out.println("<a href=\"" + request.getContextPath() + "/shop\">ShopServlet</a>");
+            out.println("<a href=\"" + request.getContextPath() + "/loginUser\">Login User</a>");
+            out.println("<a href=\"" + request.getContextPath() + "/createUser\">Add User</a>");
             out.println("</body>");
             out.println("</html>");
         }

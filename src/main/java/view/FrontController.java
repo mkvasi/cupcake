@@ -36,26 +36,18 @@ public class FrontController extends HttpServlet {
 
         String path = request.getPathInfo();
         switch (path.substring(1)) {
-            case "*":
-                response.sendRedirect("/cupcake/Index");
-                break; 
-            case "shop":
-            //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cupcake/ShopServlet");
-            //dispatcher.forward(request, response);
-            //response.sendRedirect("/cupcake/ShopServlet");
-                break;
+
             case "createUser":
                 //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cupcake/UserServlet");
                 //dispatcher.forward(request, response);
-                response.sendRedirect("/cupcake/UserServlet");
-
+                response.sendRedirect("/cupcake/UserServlet?action=create");
                 break;
-            case "login":
+            case "loginUser":
                 // RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/LoginServlet"); 
                 // dispatcher.forward(request, response);
                 //request.getSession().setAttribute("username", "RabbitLea");
                 //request.getSession().setAttribute("password", 1234);
-                response.sendRedirect("/cupcake/LoginServlet");
+                response.sendRedirect("/cupcake/UserServlet?action=login");
                 break;
         }
 

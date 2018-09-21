@@ -35,34 +35,77 @@ public class UserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        //Faste variabler
-        String username = "Lea";
-        String password = "luca";
-        String email = "luca@rabbitmail.dk";
-        BigDecimal balance = new BigDecimal("100.00");
-        
+
+        String action = request.getParameter("action");
+
         Controller ctrl = new Controller();
+
+        //Faste variabler
+//        String username = "morten";
+//        String password = "morten";
+//        String email = "luca@rabbitmail.dk";
+//        BigDecimal balance = new BigDecimal("100.00");
+
+        
+      
         
         
         //ctrl.addUser(username, password, email, balance);
         
-       // ctrl.checkPassword(username, password); 
+        // ctrl.checkPassword(username, password); 
        
         
-    
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UserServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>" + username + " " + password + " " + email + " " + balance + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+//    
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet UserServlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>" + username + " " + password + " " + email + " " + balance + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+
+
+        switch (action) {
+            case "login":
+                if (ctrl.checkPassword(username, password)) {
+                    request.getSession().setAttribute("username", "morten");
+                    request.getSession().setAttribute("balance", "100.00");
+                    response.sendRedirect("/cupcake/ShopServlet");
+                }
+                break;
+            case "create":
+                //ctrl.addUser(username, password, email, balance);
+                try (PrintWriter out = response.getWriter()) {
+                    /* TODO output your page here. You may use following sample code. */
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Servlet UserServlet</title>");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<h1>" + username + " " + password + " " + email + " " + balance + "</h1>");
+                    out.println("</body>");
+                    out.println("</html>");
+                }
+                break;
         }
+
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet UserServlet</title>");
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>" + username + " " + password + " " + email + " " + balance + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

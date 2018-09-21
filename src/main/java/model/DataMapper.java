@@ -6,11 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class DataMapper {
-
+    
     public User getUserInformation(String username) {
         User user = null;
         try {
@@ -47,7 +45,7 @@ public class DataMapper {
             pstmt.executeUpdate(sql);
 
         } catch (SQLException ex) {
-            Logger.getLogger(DataMapper.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
 
