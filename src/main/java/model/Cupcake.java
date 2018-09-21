@@ -1,7 +1,5 @@
 package model;
 
-import java.util.List;
-
 public class Cupcake {
 
 private String top, bottom;
@@ -10,6 +8,12 @@ private double totalPrice;
 
     public Cupcake(int id, String top, String bottom, double totalPrice) {
         this.id = id;
+        this.top = top;
+        this.bottom = bottom;
+        this.totalPrice = totalPrice;
+    }
+    
+    public Cupcake(String top, String bottom, double totalPrice) {
         this.top = top;
         this.bottom = bottom;
         this.totalPrice = totalPrice;

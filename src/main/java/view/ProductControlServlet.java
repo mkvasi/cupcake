@@ -5,7 +5,9 @@
  */
 package view;
 
+import controller.Controller;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author leage
+ * @author morte
  */
-@WebServlet(name = "FrontController", urlPatterns = {"/*"})
-public class FrontController extends HttpServlet {
+@WebServlet(name = "ProductControlServlet", urlPatterns = {"/ProductControlServlet"})
+public class ProductControlServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,26 +32,24 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String amount = request.getParameter("amount");
+        String topping = request.getParameter("topping");
+        String bottom = request.getParameter("bottom");
+        
         response.setContentType("text/html;charset=UTF-8");
-
-        //Faste variabler
-        String username = "morten";
-        String password = "morten";
-
-        String path = request.getPathInfo();
-        switch (path.substring(1)) {
-
-            case "loginUser":
-                request.getSession().setAttribute("username", username);
-                request.getSession().setAttribute("password", password);
-                response.sendRedirect("/cupcake/UserServlet?action=login");
-
-                break;
-            case "lineItem":
-                response.sendRedirect("/cupcake/ProductControlServlet?amount=1&topping=Chocolate&bottom=Chocolate");
-                break;
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ProductControlServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ProductControlServlet at " + amount + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

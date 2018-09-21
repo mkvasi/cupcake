@@ -7,7 +7,9 @@ package controller;
 
 import java.util.ArrayList;
 import model.Bottom;
+import model.Cupcake;
 import model.DataMapper;
+import model.LineItem;
 import model.Topping;
 import model.User;
 
@@ -46,34 +48,34 @@ public class Controller {
     }
 
     public boolean checkPassword(String username, String password) {
-//        User user = dataMapper.getUserInformation(username);
-//        return password.equals(user.getPassword());
-        return true; 
-       
+
+        User user = dataMapper.getUserInformation(username);
+        return password.equals(user.getPassword());
+
     }
 
     public String showAllBottoms(ArrayList<Bottom> allBottoms) {
 
-        String out = "<table>";
+         String out = "<select>";
 
         for (Bottom bottom : allBottoms) {
-            out += " <tr><td>" + bottom.getName() + "</td><td>" + bottom.getPrice() + "</td><td>";
+            out += "<option value=\"h\">" + bottom.getName() + " " + bottom.getPrice() + "</option>";
         }
 
-        out += "</table><br>";
+        out += "</select>";
 
         return out;
     }
     
     public String showAllTopping(ArrayList<Topping> allToppings) {
 
-        String out = "<table>";
+          String out = "<select>";
 
         for (Topping topping : allToppings) {
-            out += " <tr><td>" + topping.getName() + "</td><td>" + topping.getPrice() + "</td><td>";
+            out += "<option value=\"h\">" + topping.getName() + " " + topping.getPrice() + "</option>";
         }
 
-        out += "</table>";
+        out += "</select>";
 
         return out;
     }

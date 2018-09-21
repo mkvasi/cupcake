@@ -8,7 +8,6 @@ package view;
 import controller.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,6 +54,10 @@ public class ShopServlet extends HttpServlet {
             out.println("<h1>Balance: " + balance + "</h1>");
             out.println(ctrl.showAllBottoms(dataMapper.getBottoms()));
             out.println(ctrl.showAllTopping(dataMapper.getToppings()));
+            out.println("<br>");
+            out.println("<form>");
+            out.println("<input type=\"button\" value=\"Add Cupcake\" onclick=\"window.location.href='" + request.getContextPath() + "/lineItem'\" />");
+            out.println("</form>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -8,14 +8,11 @@ package view;
 import controller.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.User;
 
 /**
  *
@@ -44,7 +41,6 @@ public class UserServlet extends HttpServlet {
         //Faste variabler
         String username = (String)request.getSession().getAttribute("username");
         String password = (String)request.getSession().getAttribute("password");
-        String email = "luca@rabbitmail.dk";
         double balance = 100.00;
 
         switch (action) {
@@ -52,9 +48,8 @@ public class UserServlet extends HttpServlet {
                 if (ctrl.checkPassword(username, password)) {
                     request.getSession().setAttribute("username", username);
                     request.getSession().setAttribute("balance", balance);
-//                    response.sendRedirect("/cupcake/ShopServlet");
-                        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/ShopServlet"); 
-                        dispatcher.forward(request, response);
+                   response.sendRedirect("/cupcake/ShopServlet");
+                       
                 }
                 break;
             case "create":
@@ -67,7 +62,7 @@ public class UserServlet extends HttpServlet {
                     out.println("<title>Servlet UserServlet</title>");
                     out.println("</head>");
                     out.println("<body>");
-                    out.println("<h1>" + username + " " + password + " " + email + " " + balance + "</h1>");
+                    out.println("<h1>Page to create user</h1>");
                     out.println("</body>");
                     out.println("</html>");
                 }

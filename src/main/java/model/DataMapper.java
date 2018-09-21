@@ -36,8 +36,10 @@ public class DataMapper {
     public void addUser(User user) {
         try {
             Connection conn = new DBConnector().getConnection();
+
             String sql = "INSERT INTO `user` (username, password, email, balance)"
                     + "VALUES (?, ?, ?, ?)";
+
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, user.getUsername());
             pstmt.setString(2, user.getPassword());
@@ -78,7 +80,7 @@ public class DataMapper {
         ArrayList<Bottom> getAllBottoms = new ArrayList();
         try {
             Connection conn = new DBConnector().getConnection();
-            String sql = "SELECT * FROM `bottom`";
+            String sql = "SELECT * FROM `bottoms`";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
