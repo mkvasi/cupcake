@@ -41,8 +41,8 @@ public class UserServlet extends HttpServlet {
         Controller ctrl = new Controller();
 
         //Faste variabler
-        String username = "morten";
-        String password = "morten";
+        String username = (String)request.getSession().getAttribute("username");
+        String password = (String)request.getSession().getAttribute("password");
         String email = "luca@rabbitmail.dk";
         double balance = 100.00;
 

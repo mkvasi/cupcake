@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.DataMapper;
 
 /**
  *
@@ -34,6 +36,8 @@ public class ShopServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        Controller ctrl = new Controller();
+        DataMapper dataMapper = new DataMapper();
              
         String username = (String)request.getSession().getAttribute("username"); 
         String balance = "" +(double)request.getSession().getAttribute("balance");
@@ -49,6 +53,8 @@ public class ShopServlet extends HttpServlet {
             out.println("<h1>Username: " + username + "</h1>");
             out.println("<br>");
             out.println("<h1>Balance: " + balance + "</h1>");
+            out.println(ctrl.showAllBottoms(dataMapper.getBottoms()));
+            out.println(ctrl.showAllTopping(dataMapper.getToppings()));
             out.println("</body>");
             out.println("</html>");
         }

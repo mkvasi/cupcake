@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 public class DataMapper {
     
@@ -72,15 +72,15 @@ public class DataMapper {
         return cupcake;
     }
 
-    public List<Bottom> getBottoms() {
-        List<Bottom> getAllBottoms = null;
+    public ArrayList<Bottom> getBottoms() {
+        ArrayList<Bottom> getAllBottoms = new ArrayList();
         try {
             Connection conn = new DBConnector().getConnection();
             String sql = "SELECT * FROM `bottom`";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                String b_name = rs.getString("name");
+                String b_name = rs.getString("bottomname");
                 double b_price = rs.getDouble("price");
                 getAllBottoms.add(new Bottom(b_name, b_price));
             }
@@ -91,15 +91,15 @@ public class DataMapper {
         return getAllBottoms;
     }
 
-    public List<Topping> getToppings() {
-        List<Topping> getAllToppings = null;
+    public ArrayList<Topping> getToppings() {
+        ArrayList<Topping> getAllToppings = new ArrayList();
         try {
             Connection conn = new DBConnector().getConnection();
-            String sql = "SELECT * FROM `topping`";
+            String sql = "SELECT * FROM `toppings`";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                String t_name = rs.getString("name");
+                String t_name = rs.getString("toppingname");
                 double t_price = rs.getDouble("price");
                 getAllToppings.add(new Topping(t_name, t_price));
             }

@@ -5,8 +5,10 @@
  */
 package controller;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import model.Bottom;
 import model.DataMapper;
+import model.Topping;
 import model.User;
 
 /**
@@ -47,6 +49,32 @@ public class Controller {
         //User user = dataMapper.getUserInformation(username);
         //return password.equals(user.getPassword());
         return true; //TEST
+    }
+
+    public String showAllBottoms(ArrayList<Bottom> allBottoms) {
+
+        String out = "<table>";
+
+        for (Bottom bottom : allBottoms) {
+            out += " <tr><td>" + bottom.getName() + "</td><td>" + bottom.getPrice() + "</td><td>";
+        }
+
+        out += "</table><br>";
+
+        return out;
+    }
+    
+    public String showAllTopping(ArrayList<Topping> allToppings) {
+
+        String out = "<table>";
+
+        for (Topping topping : allToppings) {
+            out += " <tr><td>" + topping.getName() + "</td><td>" + topping.getPrice() + "</td><td>";
+        }
+
+        out += "</table>";
+
+        return out;
     }
 
 }

@@ -33,6 +33,10 @@ public class FrontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        //Faste variabler
+        String username = "morten";
+        String password = "morten";
 
         String path = request.getPathInfo();
         switch (path.substring(1)) {
@@ -45,8 +49,8 @@ public class FrontController extends HttpServlet {
             case "loginUser":
                 // RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/LoginServlet"); 
                 // dispatcher.forward(request, response);
-                //request.getSession().setAttribute("username", "RabbitLea");
-                //request.getSession().setAttribute("password", 1234);
+                request.getSession().setAttribute("username", username);
+                request.getSession().setAttribute("password", password);
                 response.sendRedirect("/cupcake/UserServlet?action=login");
                 break;
         }
