@@ -35,8 +35,7 @@ public class DataMapper {
     public void addUser(User user) {
         try {
             Connection conn = new DBConnector().getConnection();
-            String sql = "INSERT INTO `user` (username, password, email, balance)"
-                    + "VALUES(?,?,?,?)";
+            String sql = "INSERT INTO `user` (username, password, email, balance) VALUES(?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, user.getUsername());
             pstmt.setString(2, user.getPassword());
