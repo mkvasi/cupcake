@@ -76,7 +76,7 @@ public class DataMapper {
         ArrayList<Bottom> getAllBottoms = new ArrayList();
         try {
             Connection conn = new DBConnector().getConnection();
-            String sql = "SELECT * FROM `bottom`";
+            String sql = "SELECT * FROM `bottoms`";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {

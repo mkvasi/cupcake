@@ -50,10 +50,6 @@ public class LoginServlet extends HttpServlet {
             out.println("<form>");
             out.println("<input type=\"button\" value=\"Login User\" onclick=\"window.location.href='" + request.getContextPath() + "/loginUser'\" />");
             out.println("</form>");
-            
-//            out.println("<a href=\"" + request.getContextPath() + "/loginUser\">Login User</a>");
-//            out.println("<br><br>");
-//            out.println("<a href=\"" + request.getContextPath() + "/createUser\">Add User</a>");
 
             out.println("<br>");
             out.println("<form>");

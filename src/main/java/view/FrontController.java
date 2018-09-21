@@ -6,8 +6,6 @@
 package view;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,16 +40,15 @@ public class FrontController extends HttpServlet {
         switch (path.substring(1)) {
 
             case "createUser":
-                //RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/cupcake/UserServlet");
-                //dispatcher.forward(request, response);
                 response.sendRedirect("/cupcake/UserServlet?action=create");
                 break;
             case "loginUser":
-                // RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/test/LoginServlet"); 
-                // dispatcher.forward(request, response);
                 request.getSession().setAttribute("username", username);
                 request.getSession().setAttribute("password", password);
                 response.sendRedirect("/cupcake/UserServlet?action=login");
+                break;
+            case "lineItem":
+                response.sendRedirect("/cupcake/ProductControlServlet?amount=1&topping=Chocolate&bottom=Chocolate");
                 break;
         }
 
