@@ -6,9 +6,9 @@ public class Cupcake {
 
 private String name, top, bottom;
 private int id;
-private BigDecimal totalPrice;
+private double totalPrice;
 
-    public Cupcake(int id, String name, String top, String bottom, BigDecimal totalPrice) {
+    public Cupcake(int id, String name, String top, String bottom, double totalPrice) {
         this.id = id;
         this.name = name;
         this.top = top;
@@ -48,11 +48,11 @@ private BigDecimal totalPrice;
         this.bottom = bottom;
     }
 
-    public BigDecimal getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 

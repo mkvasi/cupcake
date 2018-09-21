@@ -14,9 +14,9 @@ import java.math.BigDecimal;
 public class Bottom {
 
 private String name;
-private BigDecimal price;
+private double price;
 
-    public Bottom(String name, BigDecimal price) {
+    public Bottom(String name, double price) {
         this.name = name;
         this.price = price;
     }
@@ -29,11 +29,11 @@ private BigDecimal price;
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

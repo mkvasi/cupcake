@@ -8,9 +8,9 @@ import java.math.BigDecimal;
 
 public class User {
     private String username, password, email;
-    private BigDecimal balance;
+    private double balance;
 
-    public User(String username, String password, String email, BigDecimal balance) {
+    public User(String username, String password, String email, double balance) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -41,11 +41,11 @@ public class User {
         this.email = email;
     }
 
-    public BigDecimal getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(BigDecimal balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 

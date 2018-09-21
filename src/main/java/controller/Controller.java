@@ -17,7 +17,7 @@ public class Controller {
 
     DataMapper dataMapper = new DataMapper();
 
-    public boolean checkUser(String username, String password, String email, BigDecimal balance) {
+    public boolean checkUser(String username, String password, String email, double balance) {
 
         if ((username == null) || (username.isEmpty())) {
             return false;
@@ -28,7 +28,7 @@ public class Controller {
         if ((email == null) || (email.isEmpty())) {
             return false;
         }
-        if ((balance == null) || (balance.intValue() < 0)) {
+        if ((balance < 0)) {
             return false;
         }
 
@@ -36,7 +36,7 @@ public class Controller {
 
     }
 
-    public void addUser(String username, String password, String email, BigDecimal balance) {
+    public void addUser(String username, String password, String email, double balance) {
         if (checkUser(username, password, email, balance)) {
             dataMapper.addUser(new User(username, password, email, balance));
         }

@@ -44,13 +44,13 @@ public class UserServlet extends HttpServlet {
         String username = "morten";
         String password = "morten";
         String email = "luca@rabbitmail.dk";
-        BigDecimal balance = new BigDecimal("100.00");
+        double balance = 100.00;
 
         switch (action) {
             case "login":
                 if (ctrl.checkPassword(username, password)) {
                     request.getSession().setAttribute("username", "morten");
-                    request.getSession().setAttribute("balance", "100.00");
+                    request.getSession().setAttribute("balance", 100.00);
                     response.sendRedirect("/cupcake/ShopServlet");
                 }
                 break;
