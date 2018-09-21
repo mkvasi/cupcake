@@ -41,33 +41,10 @@ public class UserServlet extends HttpServlet {
         Controller ctrl = new Controller();
 
         //Faste variabler
-//        String username = "morten";
-//        String password = "morten";
-//        String email = "luca@rabbitmail.dk";
-//        BigDecimal balance = new BigDecimal("100.00");
-
-        
-      
-        
-        
-        //ctrl.addUser(username, password, email, balance);
-        
-        // ctrl.checkPassword(username, password); 
-       
-        
-//    
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet UserServlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>" + username + " " + password + " " + email + " " + balance + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-
+        String username = "morten";
+        String password = "morten";
+        String email = "luca@rabbitmail.dk";
+        BigDecimal balance = new BigDecimal("100.00");
 
         switch (action) {
             case "login":
